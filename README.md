@@ -1,2 +1,2 @@
-matlab-experiment
+MATLAB experiments
 =================
