@@ -1,19 +1,11 @@
-function x = bisection( f, a, b, tolerance, drawPlot )
-%BISECTION Implementation of the bisection method for root-finding
-    deltaX = (b - a) / 100;    
-    x = a: deltaX : b;
-
-    if drawPlot
-        hold on;
-        grid on;
-        plot(x, f(x));
-    end
-    
+function [x, xi] =  bisection( f, a, b, tolerance )
+%BISECTION Implementation of the bisection method for root-finding    
     % Test zero
     if f(a) * f(b) >= 0 
         disp(strcat('Not sure if there''s a zero in the interval [', num2str(a), ',', num2str(b), ']'));
     end
     
+    i = 1;
     while abs(b-a) >= tolerance
         x = (a + b) / 2;
         
@@ -23,15 +15,8 @@ function x = bisection( f, a, b, tolerance, drawPlot )
             a = x;
         end
         
-        if drawPlot
-            plot(x, f(x), '*', 'MarkerEdgeColor', 'red', 'MarkerFaceColor', 'red');   
-        end
-    end
-       
-    if drawPlot
-        % Final approximation
-        plot(x, f(x), '+', 'MarkerEdgeColor', 'green', 'MarkerFaceColor', 'green');
-        hold off;
+        xi(i) = x;
+        i = i + 1;
     end
 end
 
