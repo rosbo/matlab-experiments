@@ -31,7 +31,7 @@ function [ x, xi ] = newtonMultiD(f, x0, numIters)
         disp('The determinant of the Jacobian is equal to 0');
     else
         for i = 1:numIters
-            x = x - inv(subs(J, symvar(J), x))*subs(f, symvar(f), x);
+            x = x - subs(J, symvar(J), x)\subs(f, symvar(f), x);
             xi(i, :) = x';
         end
     end
