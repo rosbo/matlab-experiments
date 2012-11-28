@@ -11,7 +11,7 @@ ezplot(yExact, [0 1]);
 hold on;
 
 % Approximation using Euler with different step size
-fprintf('Euler method\tError y(1)\n');
+fprintf('Euler method\tGlobal error at y(1)\n');
 for i = 1:5
     if i > 1
         pause;
