@@ -1,3 +1,4 @@
+clear all; close all;
 A = [2 1; 5 7];
 b = [11; 13];
 
